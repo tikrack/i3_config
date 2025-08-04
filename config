@@ -85,8 +85,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-    font pango:Vazir 10
-    
     colors {
         background #000000
         statusline #ffffff
