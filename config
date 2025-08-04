@@ -29,11 +29,9 @@ bindsym $mod+Shift+Right move right
 
 bindsym $mod+f fullscreen toggle
 
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer set 'Master' mute
 
 set $ws1 "1"
 set $ws2 "2"
@@ -87,7 +85,26 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-        status_command i3status
+    font pango:Vazir 10
+    
+    colors {
+        background #000000
+        statusline #ffffff
+        separator  #00ffff
+    
+        focused_workspace  #3d3d3d #3d3d3d #ffffff
+        active_workspace   #000000 #0000ff #222222
+        inactive_workspace #000000 #000000 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+        # binding_mode       #2f343a #900000 #ffffff
+    }
+
+    strip_workspace_numbers yes
+    separator_symbol "-"
+    # !REQUIRES i3blocks
+    position bottom
+    #status_command i3status
+    status_command i3blocks
 }
 
 exec --no-startup-id pulseaudio --start
