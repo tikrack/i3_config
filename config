@@ -144,14 +144,14 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
-set $ws7 7
-set $ws8 8
+set $ws1 "1: Main"
+set $ws2 "2: Coding"
+set $ws3 "3: Browsing"
+set $ws4 "4: Chat"
+set $ws5 "5: Media"
+set $ws6 "6: Terminals"
+set $ws7 "7: Server"
+set $ws8 "8: Other"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -184,10 +184,21 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
-assign [class="Main"] $ws1
-assign [class="Coding"] $ws2
-assign [class="Browsing"] $ws3
-assign [class="Chat"] $ws4
+# assign [class=""] $ws1 # Main
+assign [class="webstorm"] $ws2 # Coding
+assign [class="Chromium"] $ws3 # Browsing
+assign [class="Telegram"] $ws4 # Chat
+assign [class="vlc"] $ws5 # Media
+# assign [class=""] $ws6 # Terminals
+# assign [class=""] $ws7 # Server
+# assign [class=""] $ws8 # Other
+
+# Running Apps In Start
+exec --no-startup-id xfce4-terminal -e "htop" && "/bin/bash"
+exec --no-startup-id webstorm
+exec --no-startup-id vlc "$HOME/Music/Mehrad Hidden - Khodaye Binahayat.mp3"
+exec --no-startup-id Telegram
+exec --no-startup-id chromium
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
