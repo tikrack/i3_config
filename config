@@ -194,9 +194,9 @@ assign [class="vlc"] $ws5 # Media
 # assign [class=""] $ws8 # Other
 
 # Running Apps In Start
-exec --no-startup-id xfce4-terminal -e "htop" && "/bin/bash"
+# exec --no-startup-id kitty
 exec --no-startup-id webstorm
-exec --no-startup-id vlc "$HOME/Music/Mehrad Hidden - Khodaye Binahayat.mp3"
+exec --no-startup-id vlc --random --playlist-autostart /home/tikrack/Music/*.mp3
 exec --no-startup-id Telegram
 exec --no-startup-id chromium
 
