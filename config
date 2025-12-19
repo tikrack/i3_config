@@ -3,7 +3,7 @@
 
 # Background
 exec_always --no-startup-id feh --bg-scale /home/tikrack/Backgrounds/3.jpeg
-
+exec --no-startup-id setxkbmap -layout us,ir -option grp:win_space_toggle
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -185,6 +185,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 assign [class="phpstorm"] $ws1 # Back-end
+assign [class="rider"] $ws1 # Back-end
 assign [class="webstorm"] $ws2 # Front-end
 assign [class="Chromium"] $ws3 # Browsing
 assign [class="Telegram"] $ws4 # Chat
@@ -195,9 +196,9 @@ assign [class="vlc"] $ws5 # Media
 
 # Running Apps In Start
 # exec --no-startup-id kitty
-exec --no-startup-id webstorm
-exec --no-startup-id phpstorm
-exec --no-startup-id vlc --random --playlist-autostart /home/tikrack/Music/*.mp3
+# exec --no-startup-id webstorm
+# exec --no-startup-id phpstorm
+# exec --no-startup-id vlc --no-playlist-autostart /home/tikrack/Music/*.mp3
 exec --no-startup-id Telegram
 exec --no-startup-id chromium
 
